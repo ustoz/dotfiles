@@ -1,0 +1,43 @@
+# dotfiles/zsh/zshrc
+# vim:ts=4:sw=4:fdm=marker
+
+# Functions {{{
+
+# Terminal title and current directory
+function precmd () {
+  window_title="\033]2;$(pwd)\007"
+  echo -ne "$window_title"
+  #prompt_char
+}
+
+# }}}
+
+# History {{{
+
+SAVEHIST=3000
+HISTSIZE=3000
+HISTFILE="${HOME}/.zhistory"
+
+setopt extended_history
+setopt hist_expire_dups_first
+setopt hist_ignore_dups
+setopt hist_ignore_space
+setopt hist_verify
+setopt inc_append_history
+setopt share_history
+
+# }}}
+
+# Aliases {{{
+
+alias l="ls"
+alias ll="ls -l"
+alias la="ls -la"
+
+# }}}
+
+# Prompt {{{
+
+PROMPT="%3~ %% "
+
+# }}} 
